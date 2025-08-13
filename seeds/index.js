@@ -19,6 +19,7 @@ const seedDB = async () => {
     const random1000 = Math.floor((Math.random() * 1000));
     const price = Math.floor(Math.random() * 20) + 10;
     const camp = new Campground({
+      author: '689ac61205bf6cd43777bf40',
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
       title: `${sample(descriptors)} ${sample(places)}`,
       image: `https://random.imagecdn.app/500/300`,
@@ -27,7 +28,9 @@ const seedDB = async () => {
     })
     await camp.save();
   }
+  console.log("✅ Database Updated!");
 }
+
 
 seedDB().then(() => {
   mongoose.connection.close();
