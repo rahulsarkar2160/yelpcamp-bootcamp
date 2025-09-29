@@ -21,13 +21,19 @@ const seedDB = async () => {
     const camp = new Campground({
       author: '689ac61205bf6cd43777bf40',
       location: `${cities[random1000].city}, ${cities[random1000].state}`,
+      geometry: {
+        type: "Point",
+        coordinates: [
+          cities[random1000].longitude,
+          cities[random1000].latitude,
+        ]
+      },
       title: `${sample(descriptors)} ${sample(places)}`,
-      // image: `https://random.imagecdn.app/500/300`,
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo autem enim eius hic beatae tenetur quisquam delectus, aliquid non aperiam, cumque totam quidem expedita modi ad consequuntur mollitia atque deserunt!',
       price,
       images: [
         {
-          url: 'https://res.cloudinary.com/dicnvyawz/image/upload/v1755839905/YelpCamp/qsofs05wdunet3cm9tbk.png',
+          url: 'https://res.cloudinary.com/dicnvyawz/image/upload/v1759085228/YelpCamp/cyrqfk8zxqxz7ykrvn5q.png',
           filename: 'YelpCamp/qsofs05wdunet3cm9tbk',
         },
         {
@@ -48,3 +54,5 @@ seedDB().then(() => {
 
 // https://picsum.photos/500/300
 // https://random.imagecdn.app/500/150
+
+console.log("✅ Database Updated!");
